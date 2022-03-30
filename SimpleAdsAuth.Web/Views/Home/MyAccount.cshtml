@@ -1,0 +1,24 @@
+﻿@model MyAdsViewModel
+
+<main role="main" class="pb-3" style="margin-top: 70px;">
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            @foreach (var ads in Model.MyAds)
+            {
+                <div class="jumbotron">
+                    <h5> @ads.Title</h5>
+                    <h5>Listed by @ads.UserName</h5>
+                    <h5>Listed on @ads.Date</h5>
+                    <h5>Phone Number: @ads.PhoneNumber</h5>
+                    <h3>Details: </h3>
+                    <p>@ads.Description</p>
+                    <form method="post" action="/home/deletead">
+                        <input type="hidden" name="id" value="@ads.Id" />
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            }
+        </div>
+    </div>
+</main>
